@@ -38,6 +38,11 @@ class Login extends BaseController
                 $password_db = $cekUsername['password'];
                 $cekPassword = password_verify($password, $password_db);
                 if ($cekPassword) {
+                    $session_data = [
+                        'logged_in' => 'TRUE',
+                        'role_id' => $cekUsername['role']
+                    ];
+                    $session->set($session_data);
                     switch ($cekUsername['role']) {
                         case "Admin":
                             return redirect()->to('admin/home');

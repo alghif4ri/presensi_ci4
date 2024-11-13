@@ -9,6 +9,9 @@ class Home extends BaseController
 {
     public function index()
     {
+
         echo "ini halaman admin";
+        // test session get
+        // echo session()->get('role_id');
     }
 }
