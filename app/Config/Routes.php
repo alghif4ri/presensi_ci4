@@ -7,5 +7,6 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Login::index');
 $routes->post('login', 'Login::login_action');
+$routes->get('logout', 'Login::logout');
 $routes->get('admin/home', 'Admin\Home::index');
 $routes->get('pegawai/home', 'Pegawai\Home::index');
