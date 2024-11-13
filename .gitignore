@@ -1,13 +1,4 @@
 .env
-writable/session/ci_session4gupa7kaei63kscem1fsasfsns6dbka3
-writable/session/ci_session9v4ufhq7svlq04cbplqi1doel4r1436h
-writable/logs/log-2024-11-13.log
-writable/debugbar/debugbar_1731479906.495303.json
-writable/debugbar/debugbar_1731479901.961300.json
-writable/debugbar/debugbar_1731479804.482421.json
-writable/debugbar/debugbar_1731479799.958829.json
-writable/debugbar/debugbar_1731479799.914613.json
-writable/debugbar/debugbar_1731479750.615170.json
-writable/debugbar/debugbar_1731479746.433801.json
-writable/debugbar/debugbar_1731479746.287332.json
-writable/debugbar/debugbar_1731477978.647397.json
+writable/session/
+writable/logs/
+writable/debugbar/
