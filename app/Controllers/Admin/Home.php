@@ -9,8 +9,10 @@ class Home extends BaseController
 {
     public function index()
     {
-
-        echo "ini halaman admin";
+        $data = [
+            'title' => 'Home'
+        ];
+        return view('admin/home', $data);
         // test session get
         // echo session()->get('role_id');
     }

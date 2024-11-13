@@ -9,6 +9,9 @@ class Home extends BaseController
 {
     public function index()
     {
-        echo "ini halaman pegawai";
+        $data = [
+            'title' => 'Dashboard Pegawai',
+        ];
+        return view('pegawai/home', $data);
     }
 }
