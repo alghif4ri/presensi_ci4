@@ -17,6 +17,9 @@
 
     <!-- Tabler Icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.21.0/tabler-icons.min.css" integrity="sha512-XrgoTBs7P5YtpkeKqKOKkruURsawIaRrhe8QrcWeMnFeyRZiOcRNjBAX+AQeXOvx9/9fSY32dVct1PccRoCICQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Sweetalert -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css" />
 </head>
 
 <body>
@@ -57,6 +60,32 @@
                         </svg>
                         <span class="text">Data Pegawai</span>
                     </a>
+                </li>
+                <li class="nav-item nav-item-has-children mb-2">
+                    <a
+                        href="#0"
+                        class="collapsed"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#master-data"
+                        aria-controls="ddmenu_1"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-database">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M12 6m-8 0a8 3 0 1 0 16 0a8 3 0 1 0 -16 0" />
+                            <path d="M4 6v6a8 3 0 0 0 16 0v-6" />
+                            <path d="M4 12v6a8 3 0 0 0 16 0v-6" />
+                        </svg>
+                        <span class="text">Master Data</span>
+                    </a>
+                    <ul id="master-data" class="collapse dropdown-nav">
+                        <li>
+                            <a href="<?= base_url('admin/jabatan') ?>"> Data Jabatan </a>
+                        </li>
+                        <li>
+                            <a href="index.html"> Lokasi Presensi </a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="nav-item nav-item-has-children mb-2">
                     <a
@@ -255,6 +284,55 @@
     <script src="<?= base_url('assets/js/jvectormap.min.js') ?>"></script>
     <script src="<?= base_url('assets/js/polyfill.js') ?>"></script>
     <script src="<?= base_url('assets/js/main.js') ?>"></script>
+
+    <!-- Jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- DataTables -->
+    <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+
+    <!-- Sweetalert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+    <script>
+        // datatables
+        $(document).ready(function() {
+            $('#dataJabatan').DataTable();
+        });
+
+        // sweetalert success
+        $(function() {
+            <?php if (session()->has('success')) { ?>
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "<?= $_SESSION['success'] ?>",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            <?php } ?>
+        })
+
+        // sweetalert confirm delete
+        $('.btn-delete').on('click', function() {
+            var getLink = $(this).attr('href');
+            Swal.fire({
+                title: "Hapus data jabatan",
+                text: "Apakah yakin hapus data jabatan?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = getLink
+                }
+            });
+            return false;
+        })
+    </script>
 </body>
 
 </html>
