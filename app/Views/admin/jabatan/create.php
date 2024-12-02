@@ -1,6 +1,8 @@
 <?= $this->extend('admin/layout.php') ?>
 
 <?= $this->section('content') ?>
+<a href="<?= base_url('admin/jabatan') ?>" class="btn btn-primary mb-3"><i class="lni lni-arrow-left-circle"></i> Back</a>
+
 <div class="card col-md-6">
     <div class="card-body">
         <form method="POST" action="<?= base_url('admin/jabatan/store') ?>">
